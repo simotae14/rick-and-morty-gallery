@@ -168,8 +168,50 @@ e comincia a mostrare errori
 
 ### vitest
 
-### jsdom
+INSTALLAZIONE
+`npm install -D vitest`
 
-### @testing-library
+e per configurarlo dentro al file `vite.config.ts`
+
+```
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+...
+export default defineConfig({
+  ...
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/setupTests.ts'],
+  },
+});
+```
+
+ora devo creare un file che verrà runnato all'inizio di ogni test run, `./src/setupTests.ts`
+
+### @testing-library e jsdom
+
+ora installo la testing library, perchè vitest esegue solo i test
+jsdom ti permette di fare cose da browser senza essere nel browser (avrò accesso ai vari .toBe)
+
+`npm i -D @testing-library/react @testing-library/jest-dom`
+
+configuro vitest con jsdom di testing library quindi dentro `./src/setupTests.ts`
+
+```
+/* eslint-disable import/no-extraneous-dependencies */
+import matchers from '@testing-library/jest-dom/matchers';
+import { expect } from 'vitest';
+
+expect.extend(matchers);
+```
+
+ora posso creare il primo test
+
+e creo anche lo script di test
+
+```
+    "test": "vitest"
+```
 
 ### react-router
