@@ -3,9 +3,9 @@
 `npm create vite@latest`
 Vite combina Esbuild e Rollup in una velocissima e bella dev exp
 
-
 nome progetto
 Select a framewor: Others
+
 > create vite Extra
 > ssr-react
 > Typescript
@@ -14,13 +14,12 @@ cd progetto
 npm i
 npm dev
 
-
 hai due file
- - entry-server.tsx per SSR
- - entry-client.tsx
+
+- entry-server.tsx per SSR
+- entry-client.tsx
 
 puoi creare build client e server
-
 
 ### COMPRESSIONE
 
@@ -28,12 +27,12 @@ puoi creare build client e server
 
 e dentro vite.config.ts
 
-import viteCompression from 'vite-plugin-compression'; 
+import viteCompression from 'vite-plugin-compression';
 
 plugins: [react(), viteCompression({
-    algorithm: 'brotliCompress',
-    deleteOriginFile: true
-  })]
+algorithm: 'brotliCompress',
+deleteOriginFile: true
+})]
 
 ### Eslint
 
@@ -43,6 +42,7 @@ INSTALLAZIONE
 e poi una volta installato
 
 `npx eslint --init`
+
 > To check syntax and find problems
 > JavaScript modules (import/export)
 > React
@@ -59,6 +59,7 @@ mi crea un file eslintrc.cjs
 poi devo installare
 
 ### Eslint-airbnb-config
+
 è la style guide di airbnb per scrivere React
 
 `npx install-peerdeps eslint-config-airbnb -D`
@@ -66,11 +67,13 @@ poi devo installare
 mi installa eslint-airbnb e anche le sue pair deependency: eslint-config-airbnb eslint eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
 
 ora posso aggiungerle al mio file di config eslint `.eslintrc.cjs`
+
 ```
   extends: [
     'airbnb',
     'airbnb/hooks',
 ```
+
 airbnb sovrascrive config di eslint
 
 per fixare quello che ti segnala airbnb Cmd + Shift + P => EsLint fix all auto fixable problems
@@ -79,23 +82,28 @@ mi applica formattazione di airbnb
 Per supportare TS
 `npm install eslint-config-airbnb-typescript -D`
 e modifico il mio file di config eslint `.eslintrc.cjs`
+
 ```
   extends: [
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
 ```
+
 così mi abilita eslint anche su typescript
 
 inoltre sempre in config eslint `.eslintrc.cjs` devo specificare nelle parserOptions a eslint dove trovare
 il nostro typescript config
+
 ```
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json'
 ```
+
 devo anche modificare il `tsconfig.json` ed aggiunger in include il nome del mio file eslint
+
 ```
   "include": [
     "src",
@@ -109,19 +117,59 @@ ora se vado nei file ts e tsx vedrò errori
 
 per aggiungere delle rule al mio eslint dentro `.eslintrc.cjs` le posso aggiungere
 es: per disabilitare il dover importare react
+
 ```
   rules: {
     'react/react-in-jsx-scope': 0,
   },
 ```
+
 così me la disabilita
 
-### UNIT TEST 
+### PRETTIER
+
+per formattazione testo, rimandi a capo etc
+e installo anche delle dependency con eslint per disabilitare eventuali conflitti
+`npm install prettier eslint-config-prettier eslint-plugin-prettier -D`
+
+e creo il file di configurazione `.prettierrc.cjs` e aggiungo i settings base
+
+```
+module.exports = {
+  trailingComma: "es5",
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+};
+```
+
+poi dobbiamo aggiungere i plugin prettier a eslint dentro `.eslintrc.cjs` nei plugin
+
+```
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+  ],
+```
+
+e per abilitare le prettier rules basta che dentro extends le aggiungo
+
+```
+  extends: [
+...
+    'plugin:prettier/recommended',
+  ],
+```
+
+e comincia a mostrare errori
+
+### UNIT TEST
+
 ### vitest
+
 ### jsdom
 
 ### @testing-library
 
 ### react-router
-
-
