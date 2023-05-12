@@ -215,3 +215,9 @@ e creo anche lo script di test
 ```
 
 ### react-router
+
+INSTALLAZIONE
+`npm i react-router-dom@6`
+
+ora dentro src/App.tsx invece di wrappare App con react router dom creo un component WrappedApp dove metto tutti i wrapper che nn devo testare
+e uso HashRouter (ti mette #) perchè diversamente da BrowserRouter che usa history API e lo state per gestire le pagine in cui sei
