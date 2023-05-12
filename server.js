@@ -39,7 +39,7 @@ if (!isProduction) {
 app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, '');
-
+    
     let template;
     let render;
     if (!isProduction) {
@@ -53,7 +53,7 @@ app.use('*', async (req, res) => {
       render = (await import('./dist/server/entry-server.js')).render;
     }
 
-    const rendered = await render(url, ssrManifest);
+    const rendered = await render({  path: url });
 
     const html = template
       .replace('<!--app-head-->', rendered.head ?? '')
