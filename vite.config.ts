@@ -17,5 +17,6 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
       reportsDirectory: './coverage/unit/',
     },
+    exclude: ['./e2e', 'node_modules'],
   },
 });
