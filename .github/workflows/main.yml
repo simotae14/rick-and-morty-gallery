@@ -23,7 +23,7 @@ jobs:
       - name: test
         run: npm test
       - name: format
-        run: npm run prettier
+        run: npm run format
       - name: lint
         run: npm run lint
       - name: typescript
