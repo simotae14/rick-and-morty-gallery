@@ -10,8 +10,9 @@ const base = process.env.BASE || '/';
 const templateHtml = isProduction
   ? await fs.readFile('./dist/client/index.html', 'utf-8')
   : '';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ssrManifest = isProduction
-  ? await fs.readFile('./dist/client/ssr-manifest.json', 'utf-8')
+  ? await fs.readFile('./dist/client/ssr-manifest.json.br', 'utf-8')
   : undefined;
 
 // Create http server
@@ -50,7 +51,7 @@ app.use('*', async (req, res) => {
     } else {
       template = templateHtml;
       // eslint-disable-next-line import/extensions
-      render = (await import('./dist/server/entry-server.js')).render;
+      render = (await import('./dist/server/entry-server.js.br')).render;
     }
 
     const rendered = await render({ path: url });
