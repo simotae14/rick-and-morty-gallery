@@ -1,7 +1,7 @@
 module.exports = {
-  '*.{js,jsx,ts,tsx}': [
-      'eslint --ext .js,.jsx',
-      'npx prettier',
+  'src/**/*.{js,jsx,ts,tsx}': [
+      'npx prettier --write',
+      'eslint',
       'vitest --passWithNoTests',
   ],
   '*.{js,jsx,ts,tsx,json,css,js}': ['prettier --write'],
