@@ -221,3 +221,56 @@ INSTALLAZIONE
 
 ora dentro src/App.tsx invece di wrappare App con react router dom creo un component WrappedApp dove metto tutti i wrapper che nn devo testare
 e uso HashRouter (ti mette #) perchè diversamente da BrowserRouter che usa history API e lo state per gestire le pagine in cui sei
+
+### PRE COMMIT HOOK CON HUSKY
+
+installazione husky e lint-staged
+`npm install husky lint-staged --save-dev`
+e
+`npm install tsc-files --save-dev`
+
+creiamo file `lint-staged.js` alla root progetto
+
+```
+module.exports = {
+    '*.{js,jsx,ts,tsx}': [
+        'eslint --max-warnings=0',
+        'react-scripts test --bail --watchAll=false --findRelatedTests --passWithNoTests',
+        () => 'tsc-files --noEmit',
+    ],
+    '*.{js,jsx,ts,tsx,json,css,js}': ['prettier --write'],
+}
+```
+
+aggiungo lo script in package.json
+
+```
+"lint-staged": "lint-staged --config lint-staged.js",
+```
+
+e aggiungo lo script di pre-commit
+
+```
+"husky-install": "husky install"
+```
+
+e lo eseguo con
+
+```
+npm run husky-install
+```
+
+ora creo il nostro hook col comando
+
+```
+npx husky add .husky/pre-commit "npm run lint-staged"
+```
+
+mi genera questo file nella root della cartella .husky (pre-commit)
+
+```
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint-staged
+```

@@ -11,7 +11,9 @@
     "preview": "cross-env NODE_ENV=production node server",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "format": "npx prettier --write .",
-    "test": "vitest"
+    "test": "vitest",
+    "lint-staged": "lint-staged --config lint-staged.cjs",
+    "husky-install": "husky install"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -41,8 +43,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
     "jsdom": "^22.0.0",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
+    "tsc-files": "^1.1.3",
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
     "vite-plugin-compression": "^0.5.1",
