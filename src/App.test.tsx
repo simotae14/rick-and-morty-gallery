@@ -1,22 +1,18 @@
 import { describe, it } from 'vitest';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 import { App } from './App';
-
-function WrappedApp() {
-  return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-}
 
 describe('App', () => {
   it('Renders hello world', () => {
     // ARRANGE
-    render(<WrappedApp />);
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
     // ACT
     // EXPECT
     expect(
