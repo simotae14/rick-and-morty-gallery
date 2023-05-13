@@ -12,7 +12,7 @@ const templateHtml = isProduction
   : '';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ssrManifest = isProduction
-  ? await fs.readFile('./dist/client/ssr-manifest.json.br', 'utf-8')
+  ? await fs.readFile('./dist/client/ssr-manifest.json', 'utf-8')
   : undefined;
 
 // Create http server
@@ -50,8 +50,8 @@ app.use('*', async (req, res) => {
       render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
     } else {
       template = templateHtml;
-      // eslint-disable-next-line import/extensions
-      render = (await import('./dist/server/entry-server.js.br')).render;
+      // eslint-disable-next-line import/extensions, import/no-unresolved
+      render = (await import('./dist/server/entry-server.js')).render;
     }
 
     const rendered = await render({ path: url });
