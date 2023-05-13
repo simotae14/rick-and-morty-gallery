@@ -274,3 +274,32 @@ mi genera questo file nella root della cartella .husky (pre-commit)
 
 npm run lint-staged
 ```
+
+### COVERAGE
+
+vitest supporta coverage con c8 e instanbul
+
+installa
+`npm i -D @vitest/coverage-istanbul`
+
+aggiungi script
+
+```
+"coverage": "vitest run --coverage"
+```
+
+e configuri `vite.config.ts`
+
+```
+export default defineConfig({
+  plugins: [react()],
+  test: {
+   ...
+    coverage: {
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'html'],
+      reportsDirectory: './tests/unit/coverage'
+    },
+  },
+});
+```
