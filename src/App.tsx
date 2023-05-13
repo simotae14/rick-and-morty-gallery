@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
-const unused2 = true;
+const unused = true;
 
 export function App() {
   return (
