@@ -7,14 +7,14 @@ import { MockedProvider } from '@apollo/client/testing';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import { App } from './App';
-import { GET_WEATHER_QUERY } from './graphql';
+import { GET_CHARACTERS_QUERY } from './graphql';
 
 expect.extend(toHaveNoViolations);
 
 const mocks = [
   {
     request: {
-      query: GET_WEATHER_QUERY,
+      query: GET_CHARACTERS_QUERY,
       variables: {
         page: 1,
       },

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_WEATHER_QUERY } from '../graphql';
+import { GET_CHARACTERS_QUERY } from '../graphql';
 
 function Home() {
   const [page, setPage] = useState(1);
-  const { loading, error, data } = useQuery(GET_WEATHER_QUERY, {
+  const { loading, error, data } = useQuery(GET_CHARACTERS_QUERY, {
     variables: {
       page,
     },
