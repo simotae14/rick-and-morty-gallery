@@ -3,18 +3,44 @@ import { describe, it } from 'vitest';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { MockedProvider } from '@apollo/client/testing';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import { App } from './App';
+import { GET_WEATHER_QUERY } from './graphql';
 
 expect.extend(toHaveNoViolations);
+
+const mocks = [
+  {
+    request: {
+      query: GET_WEATHER_QUERY,
+      variables: {
+        page: 1,
+      },
+    },
+    result: {
+      data: {
+        characters: {
+          info: {
+            count: 826,
+            pages: 42,
+          },
+          results: [],
+        },
+      },
+    },
+  },
+];
 
 describe('App', () => {
   it('Renders hello world', () => {
     // ARRANGE
     render(
       <MemoryRouter initialEntries={['/']}>
-        <App />
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <App />
+        </MockedProvider>
       </MemoryRouter>
     );
     // ACT
@@ -28,7 +54,9 @@ describe('App', () => {
   it('Renders not found if invalid path', () => {
     render(
       <MemoryRouter initialEntries={['/this-route-does-not-exist']}>
-        <App />
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <App />
+        </MockedProvider>
       </MemoryRouter>
     );
     expect(
@@ -41,7 +69,9 @@ describe('App', () => {
   it('should not fail any accessibility tests', async () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/']}>
-        <App />
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <App />
+        </MockedProvider>
       </MemoryRouter>
     );
     expect(await axe(container)).toHaveNoViolations();
