@@ -1,9 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { describe, it } from 'vitest';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import { App } from './App';
+
+expect.extend(toHaveNoViolations);
 
 describe('App', () => {
   it('Renders hello world', () => {
@@ -32,5 +36,14 @@ describe('App', () => {
         level: 1,
       })
     ).toHaveTextContent('Not Found');
+  });
+
+  it('should not fail any accessibility tests', async () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(await axe(container)).toHaveNoViolations();
   });
 });
