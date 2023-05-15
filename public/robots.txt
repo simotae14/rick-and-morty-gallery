@@ -1,7 +1,3 @@
-User-agent: nameOfBot
-Disallow: /admin/
-
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow: /
-
-Sitemap: http://www.yourdomain.com/sitemap.xml
+Disallow:
