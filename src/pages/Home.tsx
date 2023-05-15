@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTERS_QUERY } from '../graphql';
-import CardWrapper from '../components/atoms/CardWrapper';
-import CardContent from '../components/atoms/CardContent';
+import Card from '../components/molecules/Card';
 import Spinner from '../components/molecules/Spinner';
 import Heading from '../components/atoms/Heading';
 
@@ -19,14 +18,12 @@ function Home() {
       <Heading title="Rick and Morty Gallery" />
       <h2>subs</h2>
       <Spinner />
-      <CardWrapper cardWrapperType="card">
-        <CardContent
-          name="Jerry Smith"
-          image="https://rickandmortyapi.com/api/character/avatar/5.jpeg"
-          status="Alive"
-          species="Human"
-        />
-      </CardWrapper>
+      <Card
+        name="Jerry Smith"
+        image="https://rickandmortyapi.com/api/character/avatar/5.jpeg"
+        status="Alive"
+        species="Human"
+      />
       {loading && <div>loading</div>}
       {error && <div>error</div>}
       {data && <div>{data.characters.info.count}</div>}

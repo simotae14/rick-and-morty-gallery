@@ -1,0 +1,99 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Components => molecules => Card > should render the Card with some props passed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+  >
+    <div
+      class="sc-buuUZy qWATL"
+    >
+      <img
+        alt="I am a title"
+        class="sc-ivAPlj kcctpO"
+        src="http://image"
+        width="140"
+      />
+      <h3
+        class="sc-erJYPI eNyzni"
+      >
+        I am a title
+      </h3>
+      <p
+        class="sc-dujCx cEFaOW"
+      >
+        <span
+          class="sc-bFmjqi fIVChe"
+          status="Alive"
+        />
+        Alive - Human
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components => molecules => Card > should render the Card with some props passed as dead character 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+  >
+    <div
+      class="sc-buuUZy qWATL"
+    >
+      <img
+        alt="I am a title"
+        class="sc-ivAPlj kcctpO"
+        src="http://image"
+        width="140"
+      />
+      <h3
+        class="sc-erJYPI eNyzni"
+      >
+        I am a title
+      </h3>
+      <p
+        class="sc-dujCx cEFaOW"
+      >
+        <span
+          class="sc-bFmjqi jNpumN"
+          status="Dead"
+        />
+        Dead - Human
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components => molecules => Card > should render the Card with the default when no props are passed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+  >
+    <div
+      class="sc-buuUZy qWATL"
+    >
+      <img
+        alt="No Character"
+        class="sc-ivAPlj kcctpO"
+        src="../../../assets/rick-morty.svg"
+        width="140"
+      />
+      <h3
+        class="sc-erJYPI eNyzni"
+      >
+        No Character
+      </h3>
+      <p
+        class="sc-dujCx cEFaOW"
+      >
+        <span
+          class="sc-bFmjqi jbJihT"
+        />
+         - 
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
