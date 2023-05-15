@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Components => atoms => CardContent > should render the CardContent with some props passed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir ca-DzqN"
+  >
+    <img
+      alt="I am a title"
+      class="sc-HzRMQ hRyKsA"
+      src="http://image"
+      width="140"
+    />
+    <h3
+      class="sc-hIFLYB RGKdL"
+    >
+      I am a title
+    </h3>
+    <p
+      class="sc-buuUZy giFHDa"
+    >
+      Alive - Human
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components => atoms => CardContent > should render the CardContent with the default when no props are passed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir ca-DzqN"
+  >
+    <img
+      alt="No Character"
+      class="sc-HzRMQ hRyKsA"
+      src="../../../assets/rick-morty.svg"
+      width="140"
+    />
+    <h3
+      class="sc-hIFLYB RGKdL"
+    >
+      No Character
+    </h3>
+    <p
+      class="sc-buuUZy giFHDa"
+    >
+       - 
+    </p>
+  </div>
+</DocumentFragment>
+`;
