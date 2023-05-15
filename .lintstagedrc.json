@@ -1,23 +1,8 @@
 {
-  "*.ts": [
-    "prettier --write",
-    "eslint --ext .ts"
-  ],
-  "*.tsx": [
-    "prettier --write",
-    "eslint --ext .tsx"
-  ],
-  "*.js": [
-    "prettier --write",
-    "eslint --ext .js"
-  ],
-  "*.jsx": [
-    "prettier --write",
-    "eslint --ext .jsx"
-  ],
-  "*.html": [
-    "eslint --ext",
-    "prettier --write"
-  ],
+  "*.ts": ["prettier --write", "eslint --ext .ts"],
+  "*.tsx": ["prettier --write", "eslint --ext .tsx"],
+  "*.js": ["prettier --write", "eslint --ext .js"],
+  "*.jsx": ["prettier --write", "eslint --ext .jsx"],
+  "*.html": ["eslint --ext", "prettier --write"],
   "*.css": "prettier --write"
 }
