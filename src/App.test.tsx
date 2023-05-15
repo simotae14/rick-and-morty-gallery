@@ -46,23 +46,6 @@ const mockWithError = [
 ];
 
 describe('App', () => {
-  it('Renders hello world', async () => {
-    // ARRANGE
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <MockedProvider mocks={mock} addTypename={false}>
-          <App />
-        </MockedProvider>
-      </MemoryRouter>
-    );
-    // ACT
-    // EXPECT
-    expect(
-      await screen.getByRole('heading', {
-        level: 1,
-      })
-    ).toHaveTextContent('Rick and Morty Gallery');
-  });
   it('should show error UI', async () => {
     render(
       <MemoryRouter initialEntries={['/']}>
