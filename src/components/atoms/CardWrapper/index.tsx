@@ -21,14 +21,14 @@ const getCardWrapper = (cardWrapperType: CardWrapperType) => {
 };
 
 /**
- * Component that Wraps the cards
+ * Component that Wraps the card
  */
 function CardWrapper({
   cardWrapperType = CardWrapperEnum.base,
   children,
 }: React.PropsWithChildren<{
   /**
-   * Is this the possible variants of the CardWrapper
+   * Is this the possible variant of the CardWrapper
    */
   cardWrapperType?: CardWrapperType;
 }>) {

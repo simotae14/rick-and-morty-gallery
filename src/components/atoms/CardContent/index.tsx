@@ -12,7 +12,6 @@ import { CharacterSmall } from '../../../types/Character.js';
  * Component that contains the information of a Character
  * inside the Gallery of characters
  */
-
 function CardContent({
   /**
    * Is this the name of the Character

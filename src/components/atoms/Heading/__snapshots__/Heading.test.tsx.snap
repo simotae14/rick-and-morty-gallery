@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Components => atoms => Heading > should render the Heading 1`] = `
+<DocumentFragment>
+  <h1
+    class="sc-eLqIir eOkooa"
+  >
+    title
+  </h1>
+</DocumentFragment>
+`;

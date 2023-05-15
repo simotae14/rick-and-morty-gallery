@@ -61,7 +61,7 @@ describe('App', () => {
       await screen.getByRole('heading', {
         level: 1,
       })
-    ).toHaveTextContent('Hello World');
+    ).toHaveTextContent('Rick and Morty Gallery');
   });
   it('should show error UI', async () => {
     render(
