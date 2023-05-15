@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTERS_QUERY } from '../graphql';
 import CardWrapper from '../components/atoms/CardWrapper';
+import SpinnerContent from '../components/atoms/SpinnerContent';
 
 function Home() {
   const [page, setPage] = useState(1);
@@ -14,7 +15,9 @@ function Home() {
   return (
     <>
       <h1>Hello World</h1>
-      <CardWrapper cardWrapperType="base">Ciao</CardWrapper>
+      <CardWrapper cardWrapperType="spinner">
+        <SpinnerContent />
+      </CardWrapper>
       {loading && <div>loading</div>}
       {error && <div>error</div>}
       {data && <div>{data.characters.info.count}</div>}
