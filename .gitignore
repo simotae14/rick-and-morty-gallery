@@ -29,3 +29,9 @@ istruzioni.md
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static
+stories
