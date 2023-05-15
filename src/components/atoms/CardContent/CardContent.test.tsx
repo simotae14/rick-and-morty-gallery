@@ -16,6 +16,13 @@ const mockProps = {
   species: 'Human',
 };
 
+const mockDeadCharacterProps = {
+  name: 'I am a title',
+  image: 'http://image',
+  status: 'Dead',
+  species: 'Human',
+};
+
 describe('Components => atoms => CardContent', () => {
   it('should render the CardContent with the default when no props are passed', () => {
     const { asFragment } = render(<CardContent />);
@@ -30,6 +37,11 @@ describe('Components => atoms => CardContent', () => {
 
   it('should render the CardContent with some props passed', () => {
     const { asFragment } = render(<CardContent {...mockProps} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render the CardContent with some props passed as dead character', () => {
+    const { asFragment } = render(<CardContent {...mockDeadCharacterProps} />);
     expect(asFragment()).toMatchSnapshot();
   });
 

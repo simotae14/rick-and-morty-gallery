@@ -3,6 +3,7 @@ import {
   Image,
   Title,
   SubTitle,
+  StatusIcon,
 } from './CardContent.styles.jsx';
 
 import { CharacterSmall } from '../../../types/Character.js';
@@ -34,11 +35,12 @@ function CardContent({
     <CardContainer>
       <Image
         width="140"
-        alt={name || 'empty image'}
+        alt={name}
         src={image || '../../../assets/rick-morty.svg'}
       />
       <Title>{name}</Title>
       <SubTitle>
+        <StatusIcon status={status} />
         {status} - {species}
       </SubTitle>
     </CardContainer>

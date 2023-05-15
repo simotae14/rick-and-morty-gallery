@@ -7,19 +7,52 @@ exports[`Components => atoms => CardContent > should render the CardContent with
   >
     <img
       alt="I am a title"
-      class="sc-HzRMQ hRyKsA"
+      class="sc-HzRMQ bhPYqq"
       src="http://image"
       width="140"
     />
     <h3
-      class="sc-hIFLYB RGKdL"
+      class="sc-hIFLYB FsSHD"
     >
       I am a title
     </h3>
     <p
-      class="sc-buuUZy giFHDa"
+      class="sc-buuUZy dqwIcC"
     >
+      <span
+        class="sc-ivAPlj krxMbp"
+        status="Alive"
+      />
       Alive - Human
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components => atoms => CardContent > should render the CardContent with some props passed as dead character 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir ca-DzqN"
+  >
+    <img
+      alt="I am a title"
+      class="sc-HzRMQ bhPYqq"
+      src="http://image"
+      width="140"
+    />
+    <h3
+      class="sc-hIFLYB FsSHD"
+    >
+      I am a title
+    </h3>
+    <p
+      class="sc-buuUZy dqwIcC"
+    >
+      <span
+        class="sc-ivAPlj iNVWyK"
+        status="Dead"
+      />
+      Dead - Human
     </p>
   </div>
 </DocumentFragment>
@@ -32,18 +65,21 @@ exports[`Components => atoms => CardContent > should render the CardContent with
   >
     <img
       alt="No Character"
-      class="sc-HzRMQ hRyKsA"
+      class="sc-HzRMQ bhPYqq"
       src="../../../assets/rick-morty.svg"
       width="140"
     />
     <h3
-      class="sc-hIFLYB RGKdL"
+      class="sc-hIFLYB FsSHD"
     >
       No Character
     </h3>
     <p
-      class="sc-buuUZy giFHDa"
+      class="sc-buuUZy dqwIcC"
     >
+      <span
+        class="sc-ivAPlj fpZVo"
+      />
        - 
     </p>
   </div>

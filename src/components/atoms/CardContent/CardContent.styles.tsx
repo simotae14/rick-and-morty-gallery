@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -40,4 +41,18 @@ export const SubTitle = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const StatusIcon = styled.span<{ status?: string }>`
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: ${(props) =>
+    props?.status === 'Alive'
+      ? 'rgb(85, 204, 68)'
+      : props?.status === 'Dead'
+      ? 'rgb(214, 61, 46)'
+      : 'rgb(158, 158, 158)'};
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.375rem;
 `;
