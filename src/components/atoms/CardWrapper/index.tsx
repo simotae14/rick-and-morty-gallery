@@ -23,7 +23,7 @@ const getCardWrapper = (cardWrapperType: CardWrapperType) => {
 function CardWrapper({
   cardWrapperType = CardWrapperEnum.base,
   children,
-}: React.PropsWithChildren<{ cardWrapperType: CardWrapperType }>) {
+}: React.PropsWithChildren<{ cardWrapperType?: CardWrapperType }>) {
   const CustomCardWrapper = getCardWrapper(cardWrapperType);
   return <CustomCardWrapper>{children}</CustomCardWrapper>;
 }

@@ -11,7 +11,7 @@ import { GET_CHARACTERS_QUERY } from './graphql';
 
 expect.extend(toHaveNoViolations);
 
-const mocks = [
+const mock = [
   {
     request: {
       query: GET_CHARACTERS_QUERY,
@@ -33,12 +33,24 @@ const mocks = [
   },
 ];
 
+const mockWithError = [
+  {
+    request: {
+      query: GET_CHARACTERS_QUERY,
+      variables: {
+        page: 1,
+      },
+    },
+    error: new Error('An error occured'),
+  },
+];
+
 describe('App', () => {
-  it('Renders hello world', () => {
+  it('Renders hello world', async () => {
     // ARRANGE
     render(
       <MemoryRouter initialEntries={['/']}>
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={mock} addTypename={false}>
           <App />
         </MockedProvider>
       </MemoryRouter>
@@ -46,15 +58,25 @@ describe('App', () => {
     // ACT
     // EXPECT
     expect(
-      screen.getByRole('heading', {
+      await screen.getByRole('heading', {
         level: 1,
       })
     ).toHaveTextContent('Hello World');
   });
+  it('should show error UI', async () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <MockedProvider mocks={mockWithError} addTypename={false}>
+          <App />
+        </MockedProvider>
+      </MemoryRouter>
+    );
+    expect(await screen.findByText('error')).toBeInTheDocument();
+  });
   it('Renders not found if invalid path', () => {
     render(
       <MemoryRouter initialEntries={['/this-route-does-not-exist']}>
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={mock} addTypename={false}>
           <App />
         </MockedProvider>
       </MemoryRouter>
@@ -69,7 +91,7 @@ describe('App', () => {
   it('should not fail any accessibility tests', async () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/']}>
-        <MockedProvider mocks={mocks} addTypename={false}>
+        <MockedProvider mocks={mock} addTypename={false}>
           <App />
         </MockedProvider>
       </MemoryRouter>

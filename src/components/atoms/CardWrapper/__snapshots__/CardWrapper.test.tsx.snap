@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Components => atoms => CardWrapper > should render the base CardWrapper when no props are passed 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir hCKDVJ"
+  >
+    content
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components => atoms => CardWrapper > should render the spinner CardWrapper when is passed the cardWrapperType "card" 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+  >
+    content
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Components => atoms => CardWrapper > should render the spinner CardWrapper when is passed the cardWrapperType "spinner" 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir sc-HzRMQ hCKDVJ ilGYxw"
+  >
+    content
+  </div>
+</DocumentFragment>
+`;
