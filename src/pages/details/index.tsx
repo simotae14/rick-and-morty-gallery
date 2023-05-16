@@ -1,32 +1,38 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../../components/molecules/Layout';
-import Heading from '../../components/atoms/Heading';
-import Pagination from '../../components/molecules/Pagination';
-import Loading from '../loading';
-import { CharacterFull } from '../../types/Character';
 import { Container } from '../../App.styles';
+import Heading from '../../components/atoms/Heading';
+import Card from '../../components/molecules/Card';
+import Grid from '../../components/molecules/Grid';
+import Layout from '../../components/molecules/Layout';
+import Pagination from '../../components/molecules/Pagination';
 import usePaginate from '../../hooks/usePaginate';
 import { useRickMortyStore } from '../../store';
-import { ContainerHome, Content } from './Home.styles';
-import Grid from '../../components/molecules/Grid';
-import Card from '../../components/molecules/Card';
+import { CharacterFull } from '../../types/Character';
+import Loading from '../loading';
+import { DetailsContainer, GridContainer } from './Details.styles';
 
-function Home() {
-  const currentPage = useRickMortyStore((state) => state.currentPage);
-  const characters = useRickMortyStore((state) => state.characters);
-  const addCharacters = useRickMortyStore((state) => state.addCharacters);
+function Details() {
   const changeCurrentPage = useRickMortyStore(
     (state) => state.changeCurrentPage
   );
+  const currentPage = useRickMortyStore((state) => state.currentPage);
+  const characters = useRickMortyStore((state) => state.characters);
+  const addCharacters = useRickMortyStore((state) => state.addCharacters);
+  const detailId = useRickMortyStore((state) => state.detailId);
   const changeDetailId = useRickMortyStore((state) => state.changeDetailId);
-  const { loading, error, data } = usePaginate();
   const navigate = useNavigate();
-
-  const onPageChange = (newValue: number) => changeCurrentPage(newValue);
-
+  useEffect(() => {
+    // check if detailId is in the characters array
+    const found = characters?.find((character) => character.id === detailId);
+    if (!found) {
+      navigate('/');
+    }
+  }, [detailId, characters, navigate]);
+  const { loading, error, data } = usePaginate();
   if (loading) {
     return (
       <Layout>
@@ -38,23 +44,14 @@ function Home() {
   }
   if (error) return <div>error</div>;
   addCharacters(data?.characters?.results);
-
-  // const newChar: Omit<CharacterFull, 'episode'> & {
-  //   episode?: [object];
-  // } = {
-  //   ...data.characters.results[0],
-  // };
-  // delete newChar.episode;
-
+  const onPageChange = (newValue: number) => changeCurrentPage(newValue);
   const handleChangeDetailId = (id: string) => {
     changeDetailId(id);
-    navigate('/details');
   };
-
   return (
-    <ContainerHome>
+    <DetailsContainer>
       <Heading title="Rick and Morty Gallery" />
-      <Content>
+      <GridContainer>
         <Grid>
           {characters?.map((character: CharacterFull) => (
             <Card
@@ -63,6 +60,7 @@ function Home() {
               image={character.image}
               status={character.status}
               species={character.species}
+              isSelected={character.id === detailId}
               onClickHandler={() => handleChangeDetailId(character.id)}
             />
           ))}
@@ -72,9 +70,9 @@ function Home() {
           currentPage={currentPage}
           numberPages={data?.characters?.info?.pages}
         />
-      </Content>
-    </ContainerHome>
+      </GridContainer>
+    </DetailsContainer>
   );
 }
 
-export default Home;
+export default Details;

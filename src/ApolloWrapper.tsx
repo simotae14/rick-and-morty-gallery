@@ -1,4 +1,5 @@
 import { ApolloProvider } from '@apollo/client';
+import ErrorBoundary from './components/organisms/ErrorBoundary';
 import { client } from './graphql/client';
 
 interface ApolloWrapperProps {
@@ -6,5 +7,9 @@ interface ApolloWrapperProps {
 }
 
 export function ApolloWrapper({ children }: ApolloWrapperProps) {
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+  return (
+    <ErrorBoundary>
+      <ApolloProvider client={client}>{children}</ApolloProvider>
+    </ErrorBoundary>
+  );
 }

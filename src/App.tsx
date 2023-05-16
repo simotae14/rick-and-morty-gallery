@@ -6,6 +6,7 @@ import { NotFoundText, Container } from './App.styles';
 import ErrorBoundary from './components/organisms/ErrorBoundary';
 
 const Home = lazy(() => import('./pages/home'));
+const Details = lazy(() => import('./pages/details'));
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
         <ErrorBoundary>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/details" element={<Details />} />
             <Route
               path="*"
               element={
