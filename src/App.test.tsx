@@ -66,9 +66,9 @@ describe('App', () => {
     );
     expect(
       screen.getByRole('heading', {
-        level: 1,
+        level: 2,
       })
-    ).toHaveTextContent('Not Found');
+    ).toHaveTextContent('Page Not Found! Click on the title');
   });
 
   it('should not fail any accessibility tests', async () => {
