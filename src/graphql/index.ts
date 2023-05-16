@@ -17,6 +17,7 @@ export const GET_CHARACTERS_QUERY = gql`
         gender
         origin {
           name
+          type
           dimension
           residents {
             name
@@ -25,6 +26,10 @@ export const GET_CHARACTERS_QUERY = gql`
         location {
           name
           type
+          dimension
+          residents {
+            name
+          }
         }
         episode {
           name

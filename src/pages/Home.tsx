@@ -5,6 +5,8 @@ import { GET_CHARACTERS_QUERY } from '../graphql';
 import CloseButton from '../components/atoms/CloseButton';
 import Card from '../components/molecules/Card';
 import Pagination from '../components/molecules/Pagination';
+import CharacterInfo from '../components/molecules/CharacterInfo';
+import { CharacterFull } from '../types/Character';
 
 function Home() {
   const [page, setPage] = useState(1);
@@ -18,9 +20,16 @@ function Home() {
 
   if (loading) return <div>Loading....</div>;
   if (error) return <div>error</div>;
+  const newChar: Omit<CharacterFull, 'episode'> & {
+    episode?: [object];
+  } = {
+    ...data.characters.results[0],
+  };
+  delete newChar.episode;
 
   return (
     <div className="App">
+      <CharacterInfo characterInfo={newChar} />
       <CloseButton onClickClose={() => console.log('clicked')} />
       <Card
         name="Jerry Smith"

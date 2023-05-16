@@ -21,16 +21,16 @@ export declare interface CharacterSmall {
 export declare interface CharacterFull extends CharacterSmall {
   type: string;
   gender: string;
-  origin: {
-    name: string;
-    dimension: string;
-    residents: Resident[];
-  };
-  location: {
-    name: string;
-    type: string;
-  };
+  origin: Location;
+  location: Location;
   episode: Episode[];
+}
+
+interface Location {
+  name: string;
+  type: string;
+  dimension: string;
+  residents: Resident[];
 }
 
 interface Resident {

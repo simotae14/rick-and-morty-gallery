@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Components => atoms => Position > should render the Position whit the props passed 1`] = `
+<DocumentFragment>
+  <span
+    class="sc-eLqIir cyjjey"
+  >
+    Location: 
+    <span
+      class="sc-HzRMQ crwatE"
+    >
+      Citadel of Ricks - Space station - unknown
+    </span>
+  </span>
+</DocumentFragment>
+`;

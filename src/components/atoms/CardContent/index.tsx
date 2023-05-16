@@ -9,8 +9,7 @@ import {
 import { CharacterSmall } from '../../../types/Character.js';
 
 /**
- * Component that contains the information of a Character
- * inside the Gallery of characters
+ * Component that contains the information of a selected Character
  */
 function CardContent({
   name = 'No Character',
