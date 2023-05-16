@@ -1,22 +1,20 @@
 /* eslint-disable no-console */
-import { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_CHARACTERS_QUERY } from '../graphql';
 import CloseButton from '../components/atoms/CloseButton';
 import Card from '../components/molecules/Card';
 import Pagination from '../components/molecules/Pagination';
 import CharacterInfo from '../components/molecules/CharacterInfo';
 import { CharacterFull } from '../types/Character';
+import usePaginate from '../hooks/usePaginate';
+import { useRickMortyStore } from '../store';
 
 function Home() {
-  const [page, setPage] = useState(1);
-  const { loading, error, data } = useQuery(GET_CHARACTERS_QUERY, {
-    variables: {
-      page,
-    },
-  });
+  const currentPage = useRickMortyStore((state) => state.currentPage);
+  const changeCurrentPage = useRickMortyStore(
+    (state) => state.changeCurrentPage
+  );
+  const { loading, error, data } = usePaginate();
 
-  const onPageChange = (newValue: number) => setPage(newValue);
+  const onPageChange = (newValue: number) => changeCurrentPage(newValue);
 
   if (loading) return <div>Loading....</div>;
   if (error) return <div>error</div>;
@@ -39,7 +37,7 @@ function Home() {
       />
       <Pagination
         onPageChange={onPageChange}
-        currentPage={page}
+        currentPage={currentPage}
         numberPages={data.characters.info.pages}
       />
     </div>
