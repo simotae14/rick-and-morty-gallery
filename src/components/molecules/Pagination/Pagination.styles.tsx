@@ -13,6 +13,7 @@ export const PaginationItem = styled.li`
   font-family: 'SFProText', serif;
   font-size: 0.75rem;
   color: '#121C33';
+  -webkit-tap-highlight-color: transparent;
 `;
 
 export const Arrow = styled(PaginationItem)<{ disabled: boolean }>`

@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Components => atoms => CloseButton > should render the CloseButton even with click handler 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-eLqIir godZbc"
+  >
+    <span
+      class="sc-HzRMQ jvqWRJ"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTERS_QUERY } from '../graphql';
+import CloseButton from '../components/atoms/CloseButton';
 import Card from '../components/molecules/Card';
 import Pagination from '../components/molecules/Pagination';
 
@@ -19,6 +21,7 @@ function Home() {
 
   return (
     <div className="App">
+      <CloseButton onClickClose={() => console.log('clicked')} />
       <Card
         name="Jerry Smith"
         image="https://rickandmortyapi.com/api/character/avatar/5.jpeg"
