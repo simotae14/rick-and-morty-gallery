@@ -22,6 +22,7 @@ function Home() {
     (state) => state.changeCurrentPage
   );
   const changeDetailId = useRickMortyStore((state) => state.changeDetailId);
+  const addSelected = useRickMortyStore((state) => state.addSelected);
   const { loading, error, data } = usePaginate();
   const navigate = useNavigate();
 
@@ -48,6 +49,7 @@ function Home() {
 
   const handleChangeDetailId = (id: string) => {
     changeDetailId(id);
+    addSelected();
     navigate('/details');
   };
 

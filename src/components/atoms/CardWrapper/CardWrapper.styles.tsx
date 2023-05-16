@@ -24,6 +24,8 @@ export const BaseWrapper = styled(DefaultWrapper)`
   padding: 32px;
   position: relative;
   height: fit-content;
+  width: fill-available;
+  width: -webkit-fill-available;
 `;
 
 export const SpinnerWrapper = styled(DefaultWrapper)`

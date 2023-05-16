@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable react/jsx-key */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
@@ -14,6 +15,7 @@ import { useRickMortyStore } from '../../store';
 import { CharacterFull } from '../../types/Character';
 import Loading from '../loading';
 import { DetailsContainer, GridContainer } from './Details.styles';
+import Detail from '../../components/organisms/Detail';
 
 function Details() {
   const changeCurrentPage = useRickMortyStore(
@@ -24,6 +26,7 @@ function Details() {
   const addCharacters = useRickMortyStore((state) => state.addCharacters);
   const detailId = useRickMortyStore((state) => state.detailId);
   const changeDetailId = useRickMortyStore((state) => state.changeDetailId);
+  const addSelected = useRickMortyStore((state) => state.addSelected);
   const navigate = useNavigate();
   useEffect(() => {
     // check if detailId is in the characters array
@@ -47,31 +50,36 @@ function Details() {
   const onPageChange = (newValue: number) => changeCurrentPage(newValue);
   const handleChangeDetailId = (id: string) => {
     changeDetailId(id);
+    addSelected();
   };
   return (
-    <DetailsContainer>
-      <Heading title="Rick and Morty Gallery" />
-      <GridContainer>
-        <Grid>
-          {characters?.map((character: CharacterFull) => (
-            <Card
-              key={character.id}
-              name={character.name}
-              image={character.image}
-              status={character.status}
-              species={character.species}
-              isSelected={character.id === detailId}
-              onClickHandler={() => handleChangeDetailId(character.id)}
-            />
-          ))}
-        </Grid>
-        <Pagination
-          onPageChange={onPageChange}
-          currentPage={currentPage}
-          numberPages={data?.characters?.info?.pages}
-        />
-      </GridContainer>
-    </DetailsContainer>
+    <>
+      <DetailsContainer>
+        <Heading title="Rick and Morty Gallery" />
+        <GridContainer>
+          <Grid>
+            {characters?.map((character: CharacterFull) => (
+              <Card
+                key={character.id}
+                name={character.name}
+                image={character.image}
+                status={character.status}
+                species={character.species}
+                isSelected={character.id === detailId}
+                onClickHandler={() => handleChangeDetailId(character.id)}
+              />
+            ))}
+          </Grid>
+          <Pagination
+            onPageChange={onPageChange}
+            currentPage={currentPage}
+            numberPages={data?.characters?.info?.pages}
+            isFixedOnMobile={true}
+          />
+        </GridContainer>
+      </DetailsContainer>
+      <Detail />
+    </>
   );
 }
 

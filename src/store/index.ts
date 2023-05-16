@@ -12,6 +12,8 @@ interface RickMortyState {
   changeTotalPages: (newTotalPages: number) => void;
   characters?: CharacterFull[];
   addCharacters: (newCharacters: CharacterFull[]) => void;
+  selected?: CharacterFull;
+  addSelected: () => void;
 }
 
 export const useRickMortyStore = create<RickMortyState>()(
@@ -26,5 +28,18 @@ export const useRickMortyStore = create<RickMortyState>()(
     characters: undefined,
     addCharacters: (newCharacters) =>
       set(() => ({ characters: newCharacters })),
+    selected: undefined,
+    addSelected: () =>
+      set((state) => {
+        const selected = state?.characters?.find((character) => {
+          return character.id === state.detailId;
+        });
+        if (selected) {
+          return {
+            selected,
+          };
+        }
+        return state;
+      }),
   }))
 );
