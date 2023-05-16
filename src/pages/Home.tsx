@@ -9,6 +9,7 @@ import { useRickMortyStore } from '../store';
 
 function Home() {
   const currentPage = useRickMortyStore((state) => state.currentPage);
+  const addCharacters = useRickMortyStore((state) => state.addCharacters);
   const changeCurrentPage = useRickMortyStore(
     (state) => state.changeCurrentPage
   );
@@ -18,6 +19,8 @@ function Home() {
 
   if (loading) return <div>Loading....</div>;
   if (error) return <div>error</div>;
+  addCharacters(data?.characters?.results);
+
   const newChar: Omit<CharacterFull, 'episode'> & {
     episode?: [object];
   } = {

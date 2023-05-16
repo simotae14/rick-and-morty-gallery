@@ -11,6 +11,7 @@ function usePaginate() {
       page: currentPage,
     },
   });
+
   return {
     loading,
     error,
