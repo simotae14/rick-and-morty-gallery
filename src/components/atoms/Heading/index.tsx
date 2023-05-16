@@ -1,4 +1,4 @@
-import { Title } from './Heading.styles';
+import { LinkWrapper, Title } from './Heading.styles';
 
 interface HeadingProps {
   /**
@@ -11,7 +11,11 @@ interface HeadingProps {
  * Component used for the Heading of the page
  */
 function Heading({ title }: HeadingProps) {
-  return <Title>{title}</Title>;
+  return (
+    <LinkWrapper to="/">
+      <Title>{title}</Title>
+    </LinkWrapper>
+  );
 }
 
 export default Heading;

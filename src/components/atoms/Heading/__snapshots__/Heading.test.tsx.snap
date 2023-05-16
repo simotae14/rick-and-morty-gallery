@@ -2,10 +2,15 @@
 
 exports[`Components => atoms => Heading > should render the Heading 1`] = `
 <DocumentFragment>
-  <h1
-    class="sc-eLqIir eOkooa"
+  <a
+    class="sc-eLqIir cirJmn"
+    href="/"
   >
-    title
-  </h1>
+    <h1
+      class="sc-HzRMQ bubYoD"
+    >
+      title
+    </h1>
+  </a>
 </DocumentFragment>
 `;

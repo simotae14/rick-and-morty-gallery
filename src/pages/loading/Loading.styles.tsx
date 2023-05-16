@@ -5,8 +5,3 @@ export const LoadingContainer = styled.div`
   margin: 0 auto;
   height: 100%;
 `;
-
-export const SpinnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;

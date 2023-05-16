@@ -3,7 +3,7 @@
 exports[`Components => atoms => CardWrapper > should render the base CardWrapper when no props are passed 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eLqIir hCKDVJ"
+    class="sc-eLqIir sc-HzRMQ kfzyXq hDBcnb"
   >
     content
   </div>
@@ -13,7 +13,7 @@ exports[`Components => atoms => CardWrapper > should render the base CardWrapper
 exports[`Components => atoms => CardWrapper > should render the spinner CardWrapper when is passed the cardWrapperType "card" 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+    class="sc-eLqIir sc-buuUZy kfzyXq dcAPxy"
   >
     content
   </div>
@@ -23,7 +23,7 @@ exports[`Components => atoms => CardWrapper > should render the spinner CardWrap
 exports[`Components => atoms => CardWrapper > should render the spinner CardWrapper when is passed the cardWrapperType "spinner" 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eLqIir sc-HzRMQ hCKDVJ ilGYxw"
+    class="sc-eLqIir sc-hIFLYB kfzyXq iDmrJc"
   >
     content
   </div>

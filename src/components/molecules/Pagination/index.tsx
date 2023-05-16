@@ -1,8 +1,15 @@
+/* eslint-disable react/require-default-props */
 import {
   PaginationContainer,
   Arrow,
+  PaginationContainerNoFixed,
   PaginationItem,
 } from './Pagination.styles';
+
+export const getPaginationWrapper = (isFixedOnMobile: boolean) => {
+  if (isFixedOnMobile) return PaginationContainer;
+  return PaginationContainerNoFixed;
+};
 
 interface PaginationProps {
   /**
@@ -17,6 +24,10 @@ interface PaginationProps {
    * Is the value representing the total number of pages
    */
   numberPages: number;
+  /**
+   * Is a value representing if it is fixed on mobile
+   */
+  isFixedOnMobile?: boolean;
 }
 
 /**
@@ -26,6 +37,7 @@ function Pagination({
   onPageChange,
   currentPage,
   numberPages,
+  isFixedOnMobile = true,
 }: PaginationProps) {
   // if there are less than 2 pages don't render the component
   if (numberPages < 2) return null;
@@ -42,8 +54,10 @@ function Pagination({
     }
   };
 
+  const CustomPaginationWrapper = getPaginationWrapper(isFixedOnMobile);
+
   return (
-    <PaginationContainer>
+    <CustomPaginationWrapper>
       <Arrow onClick={onPrevious} disabled={currentPage < 2}>
         &lt; Previous
       </Arrow>
@@ -53,7 +67,7 @@ function Pagination({
       <Arrow onClick={onNext} disabled={currentPage === numberPages}>
         Next &gt;
       </Arrow>
-    </PaginationContainer>
+    </CustomPaginationWrapper>
   );
 }
 

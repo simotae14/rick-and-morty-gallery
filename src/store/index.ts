@@ -3,8 +3,8 @@ import { devtools } from 'zustand/middleware';
 import { CharacterFull } from '../types/Character';
 
 interface RickMortyState {
-  detailId?: number;
-  changeDetailId: (newDetailId: number) => void;
+  detailId?: string;
+  changeDetailId: (newDetailId: string) => void;
   removeDetailId: () => void;
   currentPage: number;
   changeCurrentPage: (newCurrentPage: number) => void;

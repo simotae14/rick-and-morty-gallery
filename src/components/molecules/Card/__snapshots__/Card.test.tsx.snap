@@ -3,27 +3,27 @@
 exports[`Components => molecules => Card > should render the Card with some props passed 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+    class="sc-eLqIir sc-buuUZy kfzyXq dcAPxy"
   >
     <div
-      class="sc-buuUZy qWATL"
+      class="sc-dujCx jdGAeT"
     >
       <img
         alt="I am a title"
-        class="sc-ivAPlj kcctpO"
+        class="sc-bFmjqi YAYvZ"
         src="http://image"
         width="140"
       />
       <h3
-        class="sc-erJYPI eNyzni"
+        class="sc-iGsdBT gcjGsg"
       >
         I am a title
       </h3>
       <p
-        class="sc-dujCx cEFaOW"
+        class="sc-ckeRpf flOcDv"
       >
         <span
-          class="sc-bFmjqi fIVChe"
+          class="sc-kRYBTm jkbQkO"
           status="Alive"
         />
         Alive - Human
@@ -36,27 +36,27 @@ exports[`Components => molecules => Card > should render the Card with some prop
 exports[`Components => molecules => Card > should render the Card with some props passed as dead character 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+    class="sc-eLqIir sc-buuUZy kfzyXq dcAPxy"
   >
     <div
-      class="sc-buuUZy qWATL"
+      class="sc-dujCx jdGAeT"
     >
       <img
         alt="I am a title"
-        class="sc-ivAPlj kcctpO"
+        class="sc-bFmjqi YAYvZ"
         src="http://image"
         width="140"
       />
       <h3
-        class="sc-erJYPI eNyzni"
+        class="sc-iGsdBT gcjGsg"
       >
         I am a title
       </h3>
       <p
-        class="sc-dujCx cEFaOW"
+        class="sc-ckeRpf flOcDv"
       >
         <span
-          class="sc-bFmjqi jNpumN"
+          class="sc-kRYBTm jyKKPJ"
           status="Dead"
         />
         Dead - Human
@@ -69,27 +69,27 @@ exports[`Components => molecules => Card > should render the Card with some prop
 exports[`Components => molecules => Card > should render the Card with the default when no props are passed 1`] = `
 <DocumentFragment>
   <div
-    class="sc-eLqIir sc-hIFLYB hCKDVJ kgdDAR"
+    class="sc-eLqIir sc-buuUZy kfzyXq dcAPxy"
   >
     <div
-      class="sc-buuUZy qWATL"
+      class="sc-dujCx jdGAeT"
     >
       <img
         alt="No Character"
-        class="sc-ivAPlj kcctpO"
+        class="sc-bFmjqi YAYvZ"
         src="../../../assets/rick-morty.svg"
         width="140"
       />
       <h3
-        class="sc-erJYPI eNyzni"
+        class="sc-iGsdBT gcjGsg"
       >
         No Character
       </h3>
       <p
-        class="sc-dujCx cEFaOW"
+        class="sc-ckeRpf flOcDv"
       >
         <span
-          class="sc-bFmjqi jbJihT"
+          class="sc-kRYBTm ewBspn"
         />
          - 
       </p>

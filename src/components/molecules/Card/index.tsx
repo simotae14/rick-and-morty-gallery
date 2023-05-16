@@ -10,9 +10,18 @@ function Card({
   image,
   status,
   species,
-}: Partial<Omit<CharacterSmall, 'id'>>) {
+  onClickHandler,
+}: Partial<Omit<CharacterSmall, 'id'>> & {
+  /**
+   * Is the action triggered on clicking the Card
+   */
+  onClickHandler: () => void;
+}) {
   return (
-    <CardWrapper cardWrapperType={CardWrapperEnum.card}>
+    <CardWrapper
+      cardWrapperType={CardWrapperEnum.card}
+      onClickHandler={onClickHandler}
+    >
       <CardContent
         name={name}
         image={image}
