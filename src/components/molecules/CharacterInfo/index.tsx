@@ -40,15 +40,15 @@ function CharacterInfo({ characterInfo }: Omit<CharacterFull, 'episode'>) {
         </Info>
         <Position
           labelType="Location"
-          name={location.name}
-          type={location.type}
-          dimension={location.dimension}
+          name={location?.name}
+          type={location?.type}
+          dimension={location?.dimension}
         />
         <Position
           labelType="Origin"
-          name={origin.name}
-          type={origin.type}
-          dimension={origin.dimension}
+          name={origin?.name}
+          type={origin?.type}
+          dimension={origin?.dimension}
         />
       </Description>
     </Container>
