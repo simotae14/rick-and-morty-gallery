@@ -25,10 +25,10 @@ This project is provided with unit tests, end to end tests with playwright and d
 Here some pictures of the resulting pages
 
 / (the Homepage)
-![alt text](file:///Users/staeggi/Downloads/localhost_5173_.png)
+![localhost_5173_](https://github.com/simotae14/rick-and-morty-gallery/assets/2589748/d5d65c0c-360f-4c70-9fc1-f7de3b48c65b)
 
 /details (the Detail page)
-![alt text](<file:///Users/staeggi/Downloads/localhost_5173_(1).png>)
+![localhost_5173_ (1)](https://github.com/simotae14/rick-and-morty-gallery/assets/2589748/188aed72-06c5-4075-aa39-7dafc053194c)
 
 ## Installation and Setup Instructions
 
